@@ -1,0 +1,35 @@
+﻿<Window x:Class="Cafe.ListUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cafe"
+        mc:Ignorable="d"
+        Title="Список пользователей" Style="{StaticResource WindowStyle}" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Row="0" x:Name="UsersDG">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Изменить статус" Click="MenuItem_Click"/>
+                    <MenuItem Header="Назначить на смену" Click="MenuItem_Click_1"/>
+                    <MenuItem Header="Удалить пользователя" Click="MenuItem_Click_2"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role}"/>
+                <DataGridTextColumn Header="Активная смена" Binding="{Binding ActiveShiftId}"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="RegNewUserBt" Grid.Row="1" HorizontalAlignment="Right" MinWidth="150" Margin="5" Content="Зарегистрировать нового пользователя" Click="RegNewUserBt_Click"/>
+    </Grid>
+</Window>
