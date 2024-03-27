@@ -36,10 +36,12 @@ namespace Cafe
             if (LoginWindow.currentUser.Role == "Официант")
             {
                 StatusCb.ItemsSource = new List<string>() { "Принят", "Оплачен" };
+                OrderStatusCm.Visibility = Visibility.Visible;
             }
             else if (LoginWindow.currentUser.Role == "Повар")
             {
                 StatusCb.ItemsSource = new List<string>() { "Готовится", "Готов" };
+                OrderStatusCm.Visibility = Visibility.Visible;
             }
             else
             {
